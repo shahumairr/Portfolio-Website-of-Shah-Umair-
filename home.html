@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shah Umair - Projects & Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            animation: fadeIn 0.8s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            animation: fadeIn 0.8s ease 0.2s both;
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 0.8s ease 0.4s both;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .project-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .project-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .features {
+            text-align: left;
+            margin: 20px 0;
+            padding: 15px 0;
+            border-top: 2px solid #f0f0f0;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .features li {
+            list-style: none;
+            margin: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #666;
+        }
+
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+            backdrop-filter: blur(10px);
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+
+        .social-links {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+            opacity: 0.8;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="#" class="logo">
+                <i class="fas fa-rocket"></i> Shah Umair
+            </a>
+            <div style="color: white; font-size: 0.9rem;">
+                Projects & Portfolio
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Welcome to My Projects</h1>
+        <p>Explore my professional portfolio and interactive web applications</p>
+    </div>
+
+    <div class="projects-container">
+        <!-- Portfolio Card -->
+        <div class="project-card">
+            <div class="project-icon">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <h2>Professional Portfolio</h2>
+            <p>A beautifully animated portfolio showcasing my civil engineering background, qualifications, skills, and professional experience.</p>
+            
+            <ul class="features">
+                <li>GATE 2026 Qualified Badge</li>
+                <li>CGPA 8.8 Highlight</li>
+                <li>Skills Showcase</li>
+                <li>Project Experience</li>
+                <li>Animated Design</li>
+                <li>Fully Responsive</li>
+            </ul>
+
+            <div class="btn-group">
+                <a href="index.html" class="btn btn-primary">
+                    <i class="fas fa-eye"></i> View Portfolio
+                </a>
+                <a href="https://github.com/shahumairr/Portfolio-Website-of-Shah-Umair-/blob/main/index.html" class="btn btn-secondary" target="_blank">
+                    <i class="fas fa-code"></i> View Code
+                </a>
+            </div>
+        </div>
+
+        <!-- Weather Dashboard Card -->
+        <div class="project-card">
+            <div class="project-icon">
+                <i class="fas fa-cloud-sun"></i>
+            </div>
+            <h2>Weather Dashboard</h2>
+            <p>An interactive weather dashboard that fetches real-time data from OpenWeatherMap API with beautiful UI and full functionality.</p>
+            
+            <ul class="features">
+                <li>Real-time Weather Data</li>
+                <li>Search Any City</li>
+                <li>Geolocation Support</li>
+                <li>5-Day Forecast</li>
+                <li>°C / °F Toggle</li>
+                <li>Beautiful Animations</li>
+            </ul>
+
+            <div class="btn-group">
+                <a href="weather-dashboard.html" class="btn btn-primary">
+                    <i class="fas fa-eye"></i> View Dashboard
+                </a>
+                <a href="https://github.com/shahumairr/Portfolio-Website-of-Shah-Umair-/blob/main/weather-dashboard.html" class="btn btn-secondary" target="_blank">
+                    <i class="fas fa-code"></i> View Code
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h3>Er. Mohammad Umair Shah</h3>
+        <p>Civil Engineer | GATE 2026 Qualified | Educator | Founder of Keashur Engineer</p>
+        
+        <div class="social-links">
+            <a href="https://linkedin.com/in/shahumairr" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/shahumairr" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:salafiumair1513@gmail.com" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+
+        <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.7;">
+            © 2026 Mohammad Umair Shah | Keashur Engineer | All Rights Reserved
+        </p>
+    </div>
+</body>
+</html>
